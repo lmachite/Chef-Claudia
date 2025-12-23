@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef Cláudia | Alta Gastronomia e Personal Chef</title>
+    
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones (Phosphor Icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Tailwind CSS (via CDN para agilidade e modernidade) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        chef: {
+                            gold: '#D97706',    /* Amarelo queimado/Ouro */
+                            amber: '#F59E0B',   /* Laranja suave */
+                            light: '#FFFBEB',   /* Creme fundo */
+                            dark: '#1F2937',    /* Cinza escuro texto */
+                            accent: '#B45309'   /* Ferrugem para hover */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos personalizados */
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #1F2937;
+            background-color: #FFFBEB; /* Fundo creme suave */
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+            /* Fundo com imagem de gastronomia escurecida para destacar o texto */
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="smooth-scroll">
+
+    <!-- Navegação -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo / Nome -->
+                <div class="flex-shrink-0 flex items-center">
+                    <i class="ph ph-chef-hat text-3xl text-chef-gold mr-2"></i>
+                    <span class="font-serif text-2xl font-bold text-gray-800 tracking-wide">Chef Cláudia</span>
+                </div>
+                
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#sobre" class="text-gray-600 hover:text-chef-gold transition font-medium">Sobre Mim</a>
+                    <a href="#servicos" class="text-gray-600 hover:text-chef-gold transition font-medium">Serviços</a>
+                    <a href="#contato" class="text-gray-600 hover:text-chef-gold transition font-medium">Contato</a>
+                    <a href="https://wa.me/5512991167204" target="_blank" class="bg-chef-gold hover:bg-chef-accent text-white px-5 py-2 rounded-full font-bold transition shadow-lg flex items-center gap-2">
+                        <i class="ph ph-whatsapp-logo text-lg"></i> Agendar Agora
+                    </a>
+                </div>
+
+                <!-- Botão Menu Mobile -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-chef-gold focus:outline-none">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <a href="#sobre" class="block py-3 px-4 text-gray-700 hover:bg-chef-light">Sobre Mim</a>
+            <a href="#servicos" class="block py-3 px-4 text-gray-700 hover:bg-chef-light">Serviços</a>
+            <a href="#contato" class="block py-3 px-4 text-gray-700 hover:bg-chef-light">Contato</a>
+            <a href="https://wa.me/5512991167204" class="block py-3 px-4 text-chef-gold font-bold hover:bg-chef-light">Agendar WhatsApp</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen flex items-center justify-center text-center px-4 relative">
+        <div class="max-w-4xl mx-auto text-white mt-16">
+            <p class="text-chef-amber font-bold tracking-widest uppercase mb-4 text-sm md:text-base animate-pulse">Alta Gastronomia & Personal Chef</p>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-lg">
+                Sabor, Arte e <br><span class="text-chef-amber">Sofisticação</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
+                Transformando ingredientes em memórias inesquecíveis. A experiência de uma Chef formada pelo IGA no conforto do seu evento ou restaurante.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#servicos" class="bg-transparent border-2 border-chef-amber text-chef-amber hover:bg-chef-amber hover:text-white px-8 py-3 rounded-full font-bold transition duration-300">
+                    Conheça meus pratos
+                </a>
+                <a href="https://wa.me/5512991167204" target="_blank" class="bg-chef-gold border-2 border-chef-gold hover:bg-chef-accent hover:border-chef-accent text-white px-8 py-3 rounded-full font-bold transition duration-300 flex items-center justify-center gap-2 shadow-lg">
+                    <i class="ph ph-whatsapp-logo text-xl"></i> Agendar com a Chef
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre a Chef -->
+    <section id="sobre" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <!-- Coluna Imagem -->
+                <div class="w-full md:w-1/2 relative">
+                    <div class="absolute top-4 left-4 w-full h-full border-4 border-chef-gold rounded-lg transform translate-x-4 translate-y-4 -z-10"></div>
+                    <!-- PLACEHOLDER PARA FOTO DA CHEF -->
+                    <!-- Substitua o src abaixo pela foto real, ex: src="Foto_Claudia.jpg" -->
+                    <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Chef Cláudia Cozinhando" 
+                         class="rounded-lg shadow-2xl w-full h-auto object-cover"
+                         style="min-height: 400px;">
+                </div>
+                
+                <!-- Coluna Texto -->
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">Chef Cláudia</h2>
+                    <h3 class="text-xl text-chef-gold font-serif italic mb-6">Tecnóloga em Gastronomia e Alta Cozinha (IGA)</h3>
+                    
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Com mais de 10 anos de experiência profissional, sou apaixonada por transformar ingredientes simples em experiências gastronômicas memoráveis. Minha jornada inclui passagens por grandes cozinhas como <strong>Paris 6</strong> e <strong>Restaurante Frankfurter</strong>.
+                    </p>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Especializei-me em Panificação, Confeitaria e Cozinha Sofisticada, sempre prezando pelas Boas Práticas (MBP) e pela excelência no atendimento. Seja criando cardápios personalizados, atuando em eventos ou liderando cozinhas, meu compromisso é com o sabor e a qualidade.
+                    </p>
+                    
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6 mb-8">
+                        <li class="flex items-center text-gray-700"><i class="ph ph-check-circle text-chef-gold mr-2 text-xl"></i> Gestão de Cozinha</li>
+                        <li class="flex items-center text-gray-700"><i class="ph ph-check-circle text-chef-gold mr-2 text-xl"></i> Cozinha Low Carb & Vegana</li>
+                        <li class="flex items-center text-gray-700"><i class="ph ph-check-circle text-chef-gold mr-2 text-xl"></i> Panificação Artesanal</li>
+                        <li class="flex items-center text-gray-700"><i class="ph ph-check-circle text-chef-gold mr-2 text-xl"></i> Elaboração de Cardápios</li>
+                    </ul>
+
+                    <a href="#contato" class="text-chef-accent font-bold hover:text-chef-gold transition flex items-center gap-2 group">
+                        Ver meu currículo completo <i class="ph ph-arrow-right transform group-hover:translate-x-1 transition"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meus Serviços -->
+    <section id="servicos" class="py-20 bg-chef-light">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-chef-gold font-bold uppercase tracking-wider text-sm">O que eu faço</span>
+                <h2 class="text-4xl font-bold text-gray-800 mt-2">Meus Serviços</h2>
+                <div class="w-24 h-1 bg-chef-gold mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Serviço 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-chef-gold group">
+                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-chef-gold transition duration-300">
+                        <i class="ph ph-chef-hat text-3xl text-chef-gold group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 font-serif">Personal Chef</h3>
+                    <p class="text-gray-600 mb-4">Experiência exclusiva de restaurante no conforto da sua casa. Ideal para jantares românticos, almoços em família ou pequenas reuniões.</p>
+                </div>
+
+                <!-- Serviço 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-chef-gold group">
+                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-chef-gold transition duration-300">
+                        <i class="ph ph-confetti text-3xl text-chef-gold group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 font-serif">Eventos & Catering</h3>
+                    <p class="text-gray-600 mb-4">Preparação completa de refeições para eventos corporativos ou sociais. Cuidado desde a seleção dos ingredientes até a apresentação.</p>
+                </div>
+
+                <!-- Serviço 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-chef-gold group">
+                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-chef-gold transition duration-300">
+                        <i class="ph ph-storefront text-3xl text-chef-gold group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 font-serif">Diárias em Restaurantes</h3>
+                    <p class="text-gray-600 mb-4">Suporte profissional para sua cozinha em dias de alto movimento, substituição de chefia ou coordenação de produção.</p>
+                </div>
+
+                <!-- Serviço 4 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-chef-gold group">
+                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-chef-gold transition duration-300">
+                        <i class="ph ph-clipboard-text text-3xl text-chef-gold group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 font-serif">Consultoria de Menu</h3>
+                    <p class="text-gray-600 mb-4">Elaboração e revitalização de cardápios para estabelecimentos, focando em ficha técnica, redução de custos e qualidade.</p>
+                </div>
+
+                <!-- Serviço 5 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-chef-gold group">
+                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-chef-gold transition duration-300">
+                        <i class="ph ph-bread text-3xl text-chef-gold group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 font-serif">Panificação Artesanal</h3>
+                    <p class="text-gray-600 mb-4">Encomendas de pães de fermentação natural, bolos e tortas refinadas para ocasiões especiais.</p>
+                </div>
+                 
+                 <!-- Card de Chamada -->
+                 <div class="bg-chef-gold p-8 rounded-xl shadow-md flex flex-col items-center justify-center text-center text-white">
+                    <h3 class="text-2xl font-bold mb-3 font-serif">Precisa de algo personalizado?</h3>
+                    <p class="mb-6 opacity-90">Entre em contato para discutir sua necessidade específica.</p>
+                    <a href="https://wa.me/5512991167204" target="_blank" class="bg-white text-chef-gold font-bold py-2 px-6 rounded-full hover:bg-gray-100 transition shadow">
+                        Falar no WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria Rápida (Estética) -->
+    <section class="py-10 bg-white overflow-hidden">
+        <div class="flex gap-2 opacity-80 hover:opacity-100 transition duration-500">
+            <!-- Imagens placeholder de comida de alta qualidade -->
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" class="w-1/4 h-48 object-cover hover:scale-105 transition duration-500">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" class="w-1/4 h-48 object-cover hover:scale-105 transition duration-500">
+            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" class="w-1/4 h-48 object-cover hover:scale-105 transition duration-500">
+            <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" class="w-1/4 h-48 object-cover hover:scale-105 transition duration-500">
+        </div>
+    </section>
+
+    <!-- Área de Contato e Agendamento -->
+    <section id="contato" class="py-20 bg-gray-900 text-white relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16">
+                
+                <!-- Informações de Contato -->
+                <div class="lg:w-1/3">
+                    <span class="text-chef-amber font-bold uppercase tracking-wider text-sm">Fale Comigo</span>
+                    <h2 class="text-4xl font-bold mt-2 mb-6 font-serif">Agendar com a Chef</h2>
+                    <p class="text-gray-400 mb-8">
+                        Estou disponível para freelance, eventos e consultorias em São José dos Campos e região. Vamos criar algo incrível juntos?
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-gray-800 p-3 rounded-lg text-chef-amber mr-4">
+                                <i class="ph ph-whatsapp-logo text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">WhatsApp</h4>
+                                <a href="https://wa.me/5512991167204" target="_blank" class="text-gray-300 hover:text-white transition block">
+                                    (12) 99116-7204
+                                </a>
+                                <span class="text-xs text-green-400">Resposta rápida</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-gray-800 p-3 rounded-lg text-chef-amber mr-4">
+                                <i class="ph ph-envelope-simple text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">E-mail</h4>
+                                <a href="mailto:crchixaro@gmail.com" class="text-gray-300 hover:text-white transition">
+                                    crchixaro@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-gray-800 p-3 rounded-lg text-chef-amber mr-4">
+                                <i class="ph ph-map-pin text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Localização</h4>
+                                <p class="text-gray-300">São José dos Campos - SP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário -->
+                <div class="lg:w-2/3 bg-white text-gray-800 rounded-xl p-8 shadow-2xl">
+                    <h3 class="text-2xl font-bold mb-6 font-serif text-chef-dark">Envie uma mensagem</h3>
+                    <form id="contactForm" onsubmit="enviarMensagem(event)">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Seu Nome</label>
+                                <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-chef-gold focus:ring-1 focus:ring-chef-gold transition bg-gray-50" placeholder="Ex: João Silva">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Telefone/WhatsApp</label>
+                                <input type="tel" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-chef-gold focus:ring-1 focus:ring-chef-gold transition bg-gray-50" placeholder="(12) 99999-9999">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Assunto</label>
+                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-chef-gold focus:ring-1 focus:ring-chef-gold transition bg-gray-50">
+                                <option>Orçamento para Evento</option>
+                                <option>Personal Chef</option>
+                                <option>Contratação Freelance</option>
+                                <option>Outros</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Como posso ajudar?</label>
+                            <textarea rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-chef-gold focus:ring-1 focus:ring-chef-gold transition bg-gray-50" placeholder="Descreva brevemente o que você precisa..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-chef-gold hover:bg-chef-accent text-white font-bold py-4 rounded-lg transition duration-300 text-lg shadow-lg flex justify-center items-center gap-2">
+                            Enviar Mensagem <i class="ph ph-paper-plane-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-black text-white py-12 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="flex justify-center items-center mb-8">
+                <i class="ph ph-chef-hat text-4xl text-chef-gold mr-3"></i>
+                <span class="font-serif text-3xl font-bold">Chef Cláudia</span>
+            </div>
+            
+            <div class="flex justify-center space-x-6 mb-8">
+                <!-- Links redes sociais (Placeholders) -->
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-chef-gold transition duration-300">
+                    <i class="ph ph-facebook-logo text-xl"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-chef-gold transition duration-300">
+                    <i class="ph ph-instagram-logo text-xl"></i>
+                </a>
+                <a href="https://wa.me/5512991167204" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-chef-gold transition duration-300">
+                    <i class="ph ph-whatsapp-logo text-xl"></i>
+                </a>
+            </div>
+            
+            <p class="text-gray-500 text-sm">
+                &copy; 2024 Chef Cláudia Achite. Todos os direitos reservados.
+                <br>São José dos Campos, SP.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript para funcionalidade -->
+    <script>
+        // Menu Mobile Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Simulação de envio de formulário
+        function enviarMensagem(e) {
+            e.preventDefault();
+            
+            // Pega os dados básicos
+            const nome = e.target[0].value;
+            const msg = "Olá, obrigado por entrar em contato, " + nome + "! Sua mensagem foi simulada. Em um site real, isso enviaria um e-mail para crchixaro@gmail.com.";
+            
+            // Feedback visual
+            const btnSubmit = e.target.querySelector('button');
+            const originalText = btnSubmit.innerHTML;
+            
+            btnSubmit.innerHTML = '<i class="ph ph-check"></i> Enviado com Sucesso!';
+            btnSubmit.classList.remove('bg-chef-gold', 'hover:bg-chef-accent');
+            btnSubmit.classList.add('bg-green-600', 'hover:bg-green-700');
+            
+            alert(msg);
+
+            // Reseta após 3 segundos
+            setTimeout(() => {
+                btnSubmit.innerHTML = originalText;
+                btnSubmit.classList.add('bg-chef-gold', 'hover:bg-chef-accent');
+                btnSubmit.classList.remove('bg-green-600', 'hover:bg-green-700');
+                e.target.reset();
+            }, 3000);
+            
+            // Código para envio real (mailto) - Descomente para usar
+            // window.location.href = `mailto:crchixaro@gmail.com?subject=Contato Site&body=Nome: ${nome}`;
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/95', 'backdrop-blur-sm');
+                navbar.classList.remove('py-4');
+            } else {
+                // Estado original
+            }
+        });
+    </script>
+</body>
+</html>
